@@ -27,6 +27,7 @@
             --space-48: 48px;
             --space-64: 64px;
             --space-80: 80px;
+            --space-100: 100px;
             --radius: 14px;
             --radius-sm: 8px;
             --max-width: 1120px;
@@ -210,10 +211,10 @@
         
         .hero-intro {
             font-size: 1.0625rem;
-            line-height: 1.65;
+            line-height: 1.8;
             color: var(--text-muted);
-            margin-bottom: var(--space-32);
-            max-width: 48ch;
+            margin-bottom: var(--space-24);
+            max-width: 52ch;
         }
         
         .hero-cta {
@@ -334,7 +335,6 @@
             gap: var(--space-32);
         }
         
-        /* Center the 7th card when alone on last row */
         .detail-card:nth-child(7):last-child {
             grid-column: 2 / 3;
         }
@@ -375,10 +375,130 @@
             color: var(--text-muted);
         }
         
+        /* STORY SECTION */
+        .story-section {
+            padding: var(--space-80) 0;
+            background: var(--bg-primary);
+        }
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: 450px 1fr;
+            gap: var(--space-80);
+            align-items: start;
+        }
+        
+        .photo-side {
+            position: sticky;
+            top: 120px;
+        }
+        
+        .photo-container {
+            position: relative;
+        }
+        
+        .photo-container img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            padding: var(--space-32);
+            border-radius: 0 0 var(--radius) var(--radius);
+            color: white;
+        }
+        
+        .photo-overlay p {
+            margin: 0;
+            font-size: 0.875rem;
+            color: white;
+            opacity: 0.95;
+        }
+        
+        .content-side {
+            padding-top: var(--space-24);
+        }
+        
+        .story-header {
+            margin-bottom: var(--space-64);
+        }
+        
+        .story-text {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-48);
+        }
+        
+        .story-block {
+            position: relative;
+            padding-left: var(--space-48);
+        }
+        
+        .story-block::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent-taupe), transparent);
+        }
+        
+        .story-block p {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text-primary);
+            margin: 0;
+        }
+        
+        .story-highlight {
+            background: var(--bg-secondary);
+            padding: var(--space-32);
+            border-radius: var(--radius);
+            margin-top: var(--space-48);
+            border-left: 4px solid var(--accent-taupe);
+        }
+        
+        .story-highlight p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            margin: 0;
+            font-style: italic;
+        }
+        
+        .decorative-quote {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            line-height: 1.4;
+            color: var(--accent-taupe);
+            text-align: center;
+            margin: var(--space-64) 0;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .decorative-quote::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            left: -30px;
+            top: -20px;
+            opacity: 0.3;
+        }
+        
         /* CTA SECTION */
         .cta {
             padding: var(--space-80) 0;
-            background: var(--bg-primary);
+            background: var(--bg-secondary);
             text-align: center;
         }
         
@@ -394,7 +514,7 @@
         
         /* FOOTER */
         footer {
-            background: var(--bg-secondary);
+            background: var(--bg-primary);
             padding: var(--space-80) 0 var(--space-32);
             border-top: 1px solid var(--border);
         }
@@ -479,13 +599,21 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            /* Reset centering on tablet */
             .detail-card:nth-child(7):last-child {
                 grid-column: auto;
             }
             
             h2 {
                 font-size: 2rem;
+            }
+            
+            .story-grid {
+                grid-template-columns: 400px 1fr;
+                gap: var(--space-64);
+            }
+            
+            .photo-container img {
+                height: 500px;
             }
         }
         
@@ -553,6 +681,38 @@
                 grid-template-columns: 1fr;
             }
             
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-48);
+            }
+            
+            .photo-side {
+                position: relative;
+                top: 0;
+            }
+            
+            .photo-container img {
+                height: 450px;
+            }
+            
+            .story-block {
+                padding-left: var(--space-32);
+            }
+            
+            .story-block p {
+                font-size: 1rem;
+            }
+            
+            .decorative-quote {
+                font-size: 1.25rem;
+                margin: var(--space-48) 0;
+            }
+            
+            .decorative-quote::before {
+                font-size: 3rem;
+                left: -20px;
+            }
+            
             .footer-grid {
                 grid-template-columns: 1fr;
             }
@@ -586,6 +746,14 @@
             
             .highlights-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .photo-container img {
+                height: 350px;
+            }
+            
+            .story-highlight {
+                padding: var(--space-24);
             }
         }
     </style>
@@ -624,7 +792,9 @@
                 <div class="hero-content">
                     <p class="eyebrow">Auf Der Suche Nach Unserem Neuen Zuhause</p>
                     <h1>Michaela & Daniel Ferencz</h1>
-                    <p class="hero-intro">Wir sind ein ruhiges, zuverlässiges Ehepaar und möchten nach Hamburg ziehen, idealerweise nach Schnelsen oder in die nähere Umgebung. Der Wunsch nach dem Umzug entsteht vor allem, weil unsere Kinder in Hamburg leben und wir gerne näher bei ihnen sein möchten. In unserer Freizeit gehen wir gerne spazieren oder ins Theater und genießen eine ruhige, angenehme Nachbarschaft. Ein respektvolles Miteinander und ein gepflegtes Zuhause sind uns sehr wichtig. Wir sind ordentliche und verantwortungsbewusste Mieter und legen Wert auf ein langfristiges Mietverhältnis. Aus früheren Mietverhältnissen können wir positive Referenzen vorweisen, die wir bei Bedarf gerne zur Verfügung stellen. Wir freuen uns sehr darauf, in Hamburg ein neues Zuhause zu finden..</p>
+                    <p class="hero-intro">Wir sind ein ruhiges, zuverlässiges Ehepaar und möchten nach Hamburg ziehen, idealerweise nach Schnelsen oder in die nähere Umgebung. Der Wunsch nach dem Umzug entsteht vor allem, weil unsere Kinder in Hamburg leben und wir gerne näher bei ihnen sein möchten.</p>
+                    <p class="hero-intro">In unserer Freizeit gehen wir gerne spazieren oder ins Theater und genießen eine ruhige, angenehme Nachbarschaft. Ein respektvolles Miteinander und ein gepflegtes Zuhause sind uns sehr wichtig. Wir sind ordentliche und verantwortungsbewusste Mieter und legen Wert auf ein langfristiges Mietverhältnis.</p>
+                    <p class="hero-intro">Aus früheren Mietverhältnissen können wir positive Referenzen vorweisen, die wir bei Bedarf gerne zur Verfügung stellen. Wir freuen uns sehr darauf, in Hamburg ein neues Zuhause zu finden.</p>
                     <div class="hero-cta">
                         <a href="about.html" class="btn-primary">Mehr Erfahren</a>
                         <a href="contact.html" class="btn-secondary">Kontakt Aufnehmen</a>
@@ -720,6 +890,53 @@
         </div>
     </section>
 
+    <!-- STORY SECTION -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-grid">
+                <!-- PHOTO SIDE -->
+                <div class="photo-side">
+                    <div class="photo-container">
+                        <img src="images/240706.jpg" alt="Michaela & Daniel Ferencz Familie" onerror="this.src='https://images.unsplash.com/photo-1606103836293-0a063aa4ebfb?w=900&h=1200&fit=crop'">
+                        <div class="photo-overlay">
+                            <p>Familie Ferencz – Gemeinsam stark</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CONTENT SIDE -->
+                <div class="content-side">
+                    <div class="story-header">
+                        <p class="eyebrow">Familie & Leben</p>
+                        <h2>Unsere Geschichte</h2>
+                    </div>
+                    
+                    <div class="story-text">
+                        <div class="story-block">
+                            <p>Wir sind ein berufstätiges Ehepaar (55 und 57 Jahre alt), das nach Hamburg ziehen möchte, um näher bei unseren Kindern und deren junger Familie zu sein. Familie und Zusammenhalt sind uns sehr wichtig, und dieser Umzug ermöglicht es uns, Zeit mit unseren Kindern und Enkelkindern zu verbringen und sie im Alltag zu unterstützen.</p>
+                        </div>
+                        
+                        <div class="story-block">
+                            <p>Beruflich sind wir beide fest etabliert mit unbefristeten Arbeitsverträgen in stabilen Unternehmen. Wir verfügen über exzellente finanzielle Voraussetzungen, eine perfekte Miethistorie und legen großen Wert darauf, vorbildliche Mieter zu sein.</p>
+                        </div>
+                        
+                        <div class="decorative-quote">
+                            Familie ist nicht nur wichtig, sie ist alles.
+                        </div>
+                        
+                        <div class="story-block">
+                            <p>Beide Nichtraucher, ohne Haustiere, führen wir einen ruhigen, respektvollen Lebensstil. Pünktliche Mietzahlungen und sorgsamer Umgang mit unserem Zuhause sind für uns selbstverständlich. Wir suchen ein langfristiges Zuhause, in dem wir uns wohlfühlen und in dem wir ein Teil der Gemeinschaft sein können.</p>
+                        </div>
+                        
+                        <div class="story-highlight">
+                            <p>Nach über 20 Jahren in derselben Wohnung in Mülheim an der Ruhr freuen wir uns auf diesen neuen Lebensabschnitt in Hamburg – einer Stadt voller Leben, Kultur und vor allem: unserer Familie.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA -->
     <section class="cta">
         <div class="container">
@@ -748,13 +965,13 @@
                 </div>
                 <div class="footer-section">
                     <h4>Kontakt</h4>
-                    <p>E-Mail: your.email@example.com</p>
-                    <p>Telefon: +49 XXX XXXXXXX</p>
-                    <p>WhatsApp: +49 XXX XXXXXXX</p>
+                    <p>E-Mail: michaeladanielferencz@gmail.com</p>
+                    <p>Telefon: +49 15775830547</p>
+                    <p>WhatsApp: +49 15775830547</p>
                 </div>
                 <div class="footer-section">
                     <h4>Wir Suchen</h4>
-                    <p>70–100 m², 3-4 Zimmer mit Balkon </p>
+                    <p>70–100 m², 3-4 Zimmer mit Balkon</p>
                     <p>Schnelsen und Umgebung</p>
                     <p>Einzug: Ab Mai 2026</p>
                 </div>
@@ -779,6 +996,7 @@
 
 </body>
 </html>
+
 
 
 
