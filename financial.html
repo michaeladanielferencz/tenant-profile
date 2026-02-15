@@ -253,6 +253,33 @@
             line-height: 1.4;
         }
         
+        .schufa-links {
+            display: flex;
+            gap: var(--space-16);
+            justify-content: center;
+            margin-top: var(--space-12);
+        }
+        
+        .schufa-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.8125rem;
+            padding: 6px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .schufa-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+        
         /* FINANCIAL DETAILS */
         .financial-section {
             padding: var(--space-80) 0;
@@ -319,16 +346,31 @@
             font-weight: 600;
         }
         
-        .value a {
+        .value-links {
+            display: flex;
+            gap: var(--space-12);
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+        
+        .value-link {
             color: var(--accent-taupe);
             text-decoration: none;
             font-weight: 600;
-            transition: opacity 0.3s ease;
+            font-size: 0.875rem;
+            padding: 4px 10px;
+            border: 1px solid var(--accent-taupe);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
         
-        .value a:hover {
-            opacity: 0.8;
-            text-decoration: underline;
+        .value-link:hover {
+            background: var(--accent-taupe);
+            color: white;
+            transform: translateY(-1px);
         }
         
         /* DOCUMENTS SECTION */
@@ -339,7 +381,7 @@
         
         .documents-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: var(--space-32);
             margin-top: var(--space-48);
         }
@@ -369,14 +411,39 @@
         
         .document-card h3 {
             font-size: 1.125rem;
-            margin-bottom: var(--space-12);
+            margin-bottom: var(--space-16);
             color: var(--accent-taupe);
         }
         
         .document-card p {
             font-size: 0.875rem;
-            margin: 0;
+            margin-bottom: var(--space-16);
             color: var(--text-muted);
+        }
+        
+        .doc-buttons {
+            display: flex;
+            gap: var(--space-12);
+            justify-content: center;
+        }
+        
+        .doc-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--accent-taupe);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .doc-btn:hover {
+            background: #9F8D81;
+            transform: translateY(-2px);
         }
         
         /* CTA SECTION */
@@ -481,7 +548,7 @@
             }
             
             .documents-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
             }
             
             .highlight-grid {
@@ -533,8 +600,8 @@
                 grid-template-columns: 1fr;
             }
             
-            .documents-grid {
-                grid-template-columns: 1fr;
+            .doc-buttons {
+                flex-direction: column;
             }
         }
         
@@ -554,6 +621,14 @@
             
             .value {
                 text-align: left;
+            }
+            
+            .value-links {
+                justify-content: flex-start;
+            }
+            
+            .schufa-links {
+                flex-direction: column;
             }
         }
     </style>
@@ -601,11 +676,17 @@
                     <div class="highlight-number">€6.000</div>
                     <div class="highlight-label">Netto-Monatseinkommen</div>
                 </div>
-                <div class="highlight-item highlight-clickable">
-                    <a href="docs/schufa.pdf" target="_blank" class="highlight-link">
-                        <div class="highlight-number">100%</div>
-                        <div class="highlight-label">Einwandfreie SCHUFA 📄</div>
-                    </a>
+                <div class="highlight-item">
+                    <div class="highlight-number">100%</div>
+                    <div class="highlight-label">Einwandfreie SCHUFA</div>
+                    <div class="schufa-links">
+                        <a href="docs/SCHUFA_MICHAELA.pdf" target="_blank" class="schufa-link">
+                            <span>📄</span> Michaela
+                        </a>
+                        <a href="docs/SCHUFA_DANIEL.pdf" target="_blank" class="schufa-link">
+                            <span>📄</span> Daniel
+                        </a>
+                    </div>
                 </div>
                 <div class="highlight-item">
                     <div class="highlight-number">3,3×</div>
@@ -681,7 +762,14 @@
                     <ul class="financial-list">
                         <li>
                             <span class="label">SCHUFA-Auskunft</span>
-                            <span class="value"><a href="docs/schufa.pdf" target="_blank">Verfügbar 📄</a></span>
+                            <div class="value-links">
+                                <a href="docs/SCHUFA_MICHAELA.pdf" target="_blank" class="value-link">
+                                    📄 Michaela
+                                </a>
+                                <a href="docs/SCHUFA_DANIEL.pdf" target="_blank" class="value-link">
+                                    📄 Daniel
+                                </a>
+                            </div>
                         </li>
                         <li>
                             <span class="label">Negativeinträge</span>
@@ -740,11 +828,19 @@
             </div>
             
             <div class="documents-grid">
-                <a href="docs/schufa.pdf" target="_blank" class="document-card">
+                <div class="document-card">
                     <div class="doc-icon">📄</div>
                     <h3>SCHUFA-Auskunft</h3>
                     <p>Aktuelle Bonitätsauskunft ohne Negativeinträge</p>
-                </a>
+                    <div class="doc-buttons">
+                        <a href="docs/SCHUFA_MICHAELA.pdf" target="_blank" class="doc-btn">
+                            📄 Michaela
+                        </a>
+                        <a href="docs/SCHUFA_DANIEL.pdf" target="_blank" class="doc-btn">
+                            📄 Daniel
+                        </a>
+                    </div>
+                </div>
                 <div class="document-card">
                     <div class="doc-icon">💶</div>
                     <h3>Gehaltsnachweise</h3>
