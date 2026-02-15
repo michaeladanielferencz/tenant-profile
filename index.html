@@ -335,6 +335,34 @@
             line-height: 1.4;
         }
         
+        .schufa-links {
+            display: flex;
+            gap: var(--space-12);
+            justify-content: center;
+            margin-top: var(--space-12);
+            flex-wrap: wrap;
+        }
+        
+        .schufa-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.75rem;
+            padding: 5px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .schufa-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+        
         /* STORY SECTION */
         .story-section {
             padding: var(--space-80) 0;
@@ -726,6 +754,11 @@
             .story-highlight {
                 padding: var(--space-24);
             }
+            
+            .schufa-links {
+                flex-direction: column;
+                gap: 8px;
+            }
         }
     </style>
 </head>
@@ -790,11 +823,17 @@
                     <div class="highlight-number">100%</div>
                     <div class="highlight-label">Pünktliche Mietzahlung</div>
                 </div>
-                <div class="highlight-item highlight-clickable">
-                    <a href="docs/schufa.pdf" target="_blank" class="highlight-link">
-                        <div class="highlight-number">⭐</div>
-                        <div class="highlight-label">Exzellente SCHUFA 📄</div>
-                    </a>
+                <div class="highlight-item">
+                    <div class="highlight-number">⭐</div>
+                    <div class="highlight-label">Exzellente SCHUFA</div>
+                    <div class="schufa-links">
+                        <a href="docs/SCHUFA_MICHAELA.pdf" target="_blank" class="schufa-link">
+                            📄 Michaela
+                        </a>
+                        <a href="docs/SCHUFA_DANIEL.pdf" target="_blank" class="schufa-link">
+                            📄 Daniel
+                        </a>
+                    </div>
                 </div>
                 <div class="highlight-item">
                     <div class="highlight-number">0</div>
@@ -952,6 +991,7 @@
 
 </body>
 </html>
+
 
 
 
