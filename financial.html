@@ -217,12 +217,33 @@
             color: white;
         }
         
+        .highlight-clickable {
+            cursor: pointer;
+        }
+        
+        .highlight-link {
+            color: white;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-link:hover {
+            transform: scale(1.05);
+            opacity: 0.95;
+        }
+        
+        .highlight-link:hover .highlight-number {
+            transform: scale(1.1);
+        }
+        
         .highlight-number {
             font-family: var(--font-heading);
             font-size: 3rem;
             font-weight: 600;
             margin-bottom: var(--space-12);
             letter-spacing: 0.02em;
+            transition: transform 0.3s ease;
         }
         
         .highlight-label {
@@ -298,6 +319,18 @@
             font-weight: 600;
         }
         
+        .value a {
+            color: var(--accent-taupe);
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+        }
+        
+        .value a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        
         /* DOCUMENTS SECTION */
         .documents-section {
             padding: var(--space-80) 0;
@@ -318,6 +351,8 @@
             border-radius: var(--radius);
             text-align: center;
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
         }
         
         .document-card:hover {
@@ -566,9 +601,11 @@
                     <div class="highlight-number">€6.000</div>
                     <div class="highlight-label">Netto-Monatseinkommen</div>
                 </div>
-                <div class="highlight-item">
-                    <div class="highlight-number">100%</div>
-                    <div class="highlight-label">Einwandfreie SCHUFA</div>
+                <div class="highlight-item highlight-clickable">
+                    <a href="docs/schufa.pdf" target="_blank" class="highlight-link">
+                        <div class="highlight-number">100%</div>
+                        <div class="highlight-label">Einwandfreie SCHUFA 📄</div>
+                    </a>
                 </div>
                 <div class="highlight-item">
                     <div class="highlight-number">3,3×</div>
@@ -644,7 +681,7 @@
                     <ul class="financial-list">
                         <li>
                             <span class="label">SCHUFA-Auskunft</span>
-                            <span class="value highlight">Verfügbar</span>
+                            <span class="value"><a href="docs/schufa.pdf" target="_blank">Verfügbar 📄</a></span>
                         </li>
                         <li>
                             <span class="label">Negativeinträge</span>
@@ -703,11 +740,11 @@
             </div>
             
             <div class="documents-grid">
-                <div class="document-card">
+                <a href="docs/schufa.pdf" target="_blank" class="document-card">
                     <div class="doc-icon">📄</div>
                     <h3>SCHUFA-Auskunft</h3>
                     <p>Aktuelle Bonitätsauskunft ohne Negativeinträge</p>
-                </div>
+                </a>
                 <div class="document-card">
                     <div class="doc-icon">💶</div>
                     <h3>Gehaltsnachweise</h3>
@@ -761,7 +798,8 @@
             <div class="footer-bottom">
                 <p>© 2026 Michaela & Daniel Ferencz · Alle Datenverarbeitungen entsprechen der DSGVO</p>
             </div>
-        </footer>
+        </div>
+    </footer>
 
     <script>
         const hamburger = document.querySelector('.hamburger');
